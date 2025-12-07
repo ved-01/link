@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-y: auto;
+    height: 100%;
+}
+
 :root {
     /* The specific brown color picked from your image */
     --theme-brown: #7A5C43; 
@@ -13,6 +18,8 @@
 }
 
 body {
+    overflow-y: auto;
+    height: 100%;
     background-color: var(--bg-dark); /* Outer background */
     font-family: 'Space Grotesk', 'Inter', 'DM Sans', system-ui, -apple-system, sans-serif;
     font-weight: 500;
@@ -53,9 +60,16 @@ body {
     background-color: var(--theme-brown);
     min-height: calc(100vh - 50px); /* Full height minus top padding */
     position: relative;
-    overflow: hidden;
+    overflow-y: auto;
     border-radius: 28px 28px 0 0; /* Rounded top corners, flat bottom */
     box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+    /* Hide scrollbar but keep scrolling */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.card-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 /* --- THE HERO BLEND EFFECT (KEY PART) --- */
@@ -66,6 +80,7 @@ body {
     position: relative;
     z-index: 1;
     overflow: hidden;
+    transition: opacity 0.3s ease-out;
 }
 
 .hero-img {

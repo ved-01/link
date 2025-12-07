@@ -48,5 +48,25 @@
         </div>
     </div>
 
+    <script>
+        const cardContainer = document.querySelector('.card-container');
+        const heroImageWrapper = document.querySelector('.hero-image-wrapper');
+        
+        cardContainer.addEventListener('scroll', () => {
+            const scrollTop = cardContainer.scrollTop;
+            const fadeStart = 0; // Start fading immediately
+            const fadeEnd = 300; // Fully faded after 300px of scroll
+            
+            // Calculate opacity (1 = fully visible, 0 = fully transparent)
+            let opacity = 1 - (scrollTop / fadeEnd);
+            
+            // Clamp opacity between 0 and 1
+            opacity = Math.max(0, Math.min(1, opacity));
+            
+            // Apply opacity to hero image wrapper
+            heroImageWrapper.style.opacity = opacity;
+        });
+    </script>
+
 </body>
 </html>
