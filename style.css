@@ -23,9 +23,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch;
     min-height: 100vh;
-    padding: 50px 16px 40px;
+    padding: 50px 16px 0;
 }
 
 /* Mobile: Full screen card, no padding */
@@ -37,12 +37,12 @@ body {
     
     .card-container {
         max-width: 100%;
-        border-radius: 0;
+        border-radius: 28px 28px 0 0; /* Rounded top corners, flat bottom */
         min-height: 100vh;
     }
     
     .hero-img {
-        border-radius: 0;
+        border-radius: 28px 28px 0 0; /* Rounded top corners, flat bottom */
     }
 }
 
@@ -51,10 +51,10 @@ body {
     width: 100%;
     max-width: 520px; /* Mobile width */
     background-color: var(--theme-brown);
-    min-height: auto;
+    min-height: calc(100vh - 50px); /* Full height minus top padding */
     position: relative;
     overflow: hidden;
-    border-radius: 28px;
+    border-radius: 28px 28px 0 0; /* Rounded top corners, flat bottom */
     box-shadow: 0 20px 50px rgba(0,0,0,0.45);
 }
 
@@ -76,10 +76,8 @@ body {
     transform: scale(1.2);
     transform-origin: top center;
     
-    /* CHANGE 1: Rounded corners on ALL sides. 
-       This creates that "pill" shape at the bottom 
-       before it fully fades out. */
-    border-radius: 28px; 
+    /* Rounded top corners only, flat bottom */
+    border-radius: 28px 28px 0 0; 
     
     /* CHANGE 2: Smoother Fade Gradient. 
        Instead of just one jump from black to transparent, 
